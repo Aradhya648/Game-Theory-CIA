@@ -255,3 +255,110 @@
   padding-left: var(--space-2);
   border-left: 2px solid var(--border);
 }
+
+/* Stage 2 tree */
+
+.tree-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .tree-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tree {
+  position: relative;
+}
+
+.tree__lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: visible;
+}
+
+.tree__edge {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+
+.tree__edge--active {
+  stroke: var(--equilibrium);
+  stroke-width: 2.5;
+}
+
+.tree__row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: var(--space-4);
+}
+
+.tree__row--root {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.tree__row--branches,
+.tree__row--decisions {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tree__row--leaves {
+  margin-bottom: 0;
+}
+
+.tree-node {
+  justify-self: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 10px 22px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tree-node--active {
+  border-color: var(--equilibrium);
+  color: var(--equilibrium);
+  background: var(--equilibrium-bg);
+}
+
+.tree__branch-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.tree__check {
+  color: var(--equilibrium);
+  margin-left: 4px;
+}
+
+.tree-leaf {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-1) var(--space-2);
+  background: var(--bg);
+  justify-self: stretch;
+}
+
+.tree-leaf--spe {
+  border-color: var(--equilibrium);
+  background: var(--equilibrium-bg);
+}
+
+.tree-leaf .matrix__payoffs {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
