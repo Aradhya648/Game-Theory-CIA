@@ -426,3 +426,22 @@
   border-radius: var(--radius);
   color: var(--text);
 }
+
+/* Commentary */
+
+.commentary__editor {
+  min-height: 320px;
+  font-size: 15px;
+}
+
+.commentary__count {
+  margin-top: var(--space-1);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.commentary__count--ok {
+  color: var(--equilibrium);
+  font-weight: 600;
+}
