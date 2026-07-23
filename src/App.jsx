@@ -1,6 +1,11 @@
 import './App.css'
+import { usePersistentState } from './hooks/usePersistentState'
+import { DEFAULT_JUSTIFICATION } from './data/defaultGame'
+import GameSpecification from './components/GameSpecification'
 
 function App() {
+  const [justification, setJustification] = usePersistentState('justification', DEFAULT_JUSTIFICATION)
+
   return (
     <div className="app-shell">
       <header className="app-header">
@@ -12,6 +17,8 @@ function App() {
           below are editable and every equilibrium re-solves live.
         </p>
       </header>
+
+      <GameSpecification justification={justification} onJustificationChange={setJustification} />
     </div>
   )
 }

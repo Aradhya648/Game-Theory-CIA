@@ -89,3 +89,64 @@
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
+
+/* Game Specification */
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 720px) {
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spec-block h3 {
+  font-size: 14px;
+  margin-bottom: var(--space-2);
+}
+
+.spec-list {
+  font-size: 15px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spec-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: var(--space-1) 0 6px;
+}
+
+.spec-justification {
+  margin-top: var(--space-4);
+}
+
+.spec-justification h3 {
+  font-size: 14px;
+  margin-bottom: var(--space-1);
+}
+
+.text-editor {
+  width: 100%;
+  margin-top: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  resize: vertical;
+}
+
+.text-editor:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
