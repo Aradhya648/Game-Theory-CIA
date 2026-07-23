@@ -1,10 +1,12 @@
 import './App.css'
 import { usePersistentState } from './hooks/usePersistentState'
-import { DEFAULT_JUSTIFICATION } from './data/defaultGame'
+import { DEFAULT_JUSTIFICATION, defaultStage1 } from './data/defaultGame'
 import GameSpecification from './components/GameSpecification'
+import Stage1Matrix from './components/Stage1Matrix'
 
 function App() {
   const [justification, setJustification] = usePersistentState('justification', DEFAULT_JUSTIFICATION)
+  const [stage1, setStage1] = usePersistentState('stage1', defaultStage1)
 
   return (
     <div className="app-shell">
@@ -19,6 +21,7 @@ function App() {
       </header>
 
       <GameSpecification justification={justification} onJustificationChange={setJustification} />
+      <Stage1Matrix matrix={stage1} onChange={setStage1} />
     </div>
   )
 }
