@@ -4,6 +4,7 @@ import { DEFAULT_JUSTIFICATION, defaultStage1, defaultStage2 } from './data/defa
 import GameSpecification from './components/GameSpecification'
 import Stage1Matrix from './components/Stage1Matrix'
 import Stage2Tree from './components/Stage2Tree'
+import ComparisonPanel from './components/ComparisonPanel'
 
 function App() {
   const [justification, setJustification] = usePersistentState('justification', DEFAULT_JUSTIFICATION)
@@ -25,6 +26,7 @@ function App() {
       <GameSpecification justification={justification} onJustificationChange={setJustification} />
       <Stage1Matrix matrix={stage1} onChange={setStage1} />
       <Stage2Tree tree={stage2} onChange={setStage2} />
+      <ComparisonPanel stage1={stage1} stage2={stage2} />
     </div>
   )
 }
