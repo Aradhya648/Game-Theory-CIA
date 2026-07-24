@@ -3,6 +3,7 @@ import './App.css'
 import IntroScreen from './components/IntroScreen'
 import ScoreHeader from './components/ScoreHeader'
 import Stage1Round from './components/Stage1Round'
+import Stage2Round from './components/Stage2Round'
 
 function App() {
   const [screen, setScreen] = useState('intro') // 'intro' | 'stage1' | 'stage2' | 'results'
@@ -44,18 +45,12 @@ function App() {
         )}
 
         {screen === 'stage2' && (
-          <div className="scene">
-            <p>Round 2 placeholder — built in the next step.</p>
-            <button
-              className="btn btn--primary"
-              onClick={() => {
-                setStage2Result({ payoff: { zoomEats: 9, campusCart: 4 } })
-                setScreen('results')
-              }}
-            >
-              Simulate Round 2
-            </button>
-          </div>
+          <Stage2Round
+            onComplete={(result) => {
+              setStage2Result(result)
+              setScreen('results')
+            }}
+          />
         )}
 
         {screen === 'results' && (
