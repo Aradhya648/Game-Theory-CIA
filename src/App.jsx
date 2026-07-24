@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import IntroScreen from './components/IntroScreen'
 import ScoreHeader from './components/ScoreHeader'
+import Stage1Round from './components/Stage1Round'
 
 function App() {
   const [screen, setScreen] = useState('intro') // 'intro' | 'stage1' | 'stage2' | 'results'
@@ -34,18 +35,12 @@ function App() {
         {screen === 'intro' && <IntroScreen onStart={() => setScreen('stage1')} />}
 
         {screen === 'stage1' && (
-          <div className="scene">
-            <p>Round 1 placeholder — built in the next step.</p>
-            <button
-              className="btn btn--primary"
-              onClick={() => {
-                setStage1Result({ payoff: { zoomEats: 3, campusCart: 3 } })
-                setScreen('stage2')
-              }}
-            >
-              Simulate Round 1
-            </button>
-          </div>
+          <Stage1Round
+            onComplete={(result) => {
+              setStage1Result(result)
+              setScreen('stage2')
+            }}
+          />
         )}
 
         {screen === 'stage2' && (
