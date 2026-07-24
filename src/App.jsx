@@ -4,6 +4,7 @@ import IntroScreen from './components/IntroScreen'
 import ScoreHeader from './components/ScoreHeader'
 import Stage1Round from './components/Stage1Round'
 import Stage2Round from './components/Stage2Round'
+import ResultsScreen from './components/ResultsScreen'
 
 function App() {
   const [screen, setScreen] = useState('intro') // 'intro' | 'stage1' | 'stage2' | 'results'
@@ -54,12 +55,7 @@ function App() {
         )}
 
         {screen === 'results' && (
-          <div className="scene">
-            <p>Results placeholder — built in a later step.</p>
-            <button className="btn btn--primary" onClick={playAgain}>
-              Play Again
-            </button>
-          </div>
+          <ResultsScreen stage1Result={stage1Result} stage2Result={stage2Result} onPlayAgain={playAgain} />
         )}
       </div>
     </div>
